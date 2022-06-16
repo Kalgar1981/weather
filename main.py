@@ -3,9 +3,6 @@ Script basico para obtener info del tiempo desde OpenWeather.com
 * Temperatura
 * Viento
 * Lluvia
-...
-User: gzubiete@gmail.com
-Password: galder12
 """
 
 import requests
@@ -13,7 +10,10 @@ import json
 import utils
 from datetime import datetime
 
-api_key = "f8f08833aa0da7a49af44561efc983ee"
+fich = open("config", "r")
+content = fich.readlines()
+linea = content[2].split(": ")
+api_key = linea[1]
 lat = "43.2348"
 lon = "-2.8827"
 url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + api_key + "&units=metric&lang=ES"
